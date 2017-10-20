@@ -1,10 +1,3 @@
-#spring:
-#  data:
-#    mongodb:
-#      host: mongodb
-#      port: 27017
-#      database: blogger
-      
 server:
     port: 8081
 

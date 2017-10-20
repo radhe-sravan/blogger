@@ -33,6 +33,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile("org.springframework.boot:spring-boot-starter-security")
 	compile("org.hsqldb:hsqldb")
+	compile("postgresql:postgresql:9.0-801.jdbc4")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
