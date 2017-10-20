@@ -23,7 +23,7 @@ public class Comment implements Serializable {
   @GenericGenerator(name = "uuid", strategy = "uuid2")
   private String id;
   private String postId;
-  private String user;
+  private String commentAsUser;
   @Column(name="comment", length = 100000)
   private String comment;
   @CreatedDate
@@ -33,9 +33,9 @@ public class Comment implements Serializable {
 
   }
 
-  public Comment(String postId, String user, String comment) {
+  public Comment(String postId, String commentAsUser, String comment) {
     this.postId = postId;
-    this.user = user;
+    this.commentAsUser = commentAsUser;
     this.comment = comment;
   }
 
@@ -48,7 +48,7 @@ public class Comment implements Serializable {
   }
 
   public String getUser() {
-    return user;
+    return commentAsUser;
   }
 
   public String getComment() {
