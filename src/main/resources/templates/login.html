@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Technocrat | Login</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../static/bootstrap.min.css"
+	th:href="@{/bootstrap.min.css}" />
+<link rel="stylesheet" href="../static/app/style.css"
+	th:href="@{/app/style.css}" />
+<script type="text/javascript">
+	history.pushState(null, document.title, location.href);
+	window.addEventListener('popstate', function(event) {
+		history.pushState(null, document.title, location.href);
+	});
+</script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4"></div>
+			<div id="loginForm" class="col-lg-4">
+				<form action="login" method='POST'>
+					<img class="profile-img"
+						src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png"
+						alt="" />
+					<div>
+						<input id="username" name="username" type="text"
+							autocomplete="off" placeholder="Username" autofocus="autofocus"/>
+					</div>
+					<div>
+						<input id="password" name="password" type="password"
+							placeholder="Password" />
+					</div>
+					<div>
+						<input id="signIn" type="submit" value="Sign in"
+							class="btn btn-block btn-primary" />
+					</div>
+					<div id="errorMsg" class="message" th:if="${param.error}">
+						<p>The username or password you have entered is incorrect</p>
+					</div>
+					<div id="logoutMsg" class="message" th:if="${param.logout}">
+						<p>You have successfully logged out</p>
+					</div>
+				</form>
+			</div>
+			<div class="col-lg-4"></div>
+		</div>
+	</div>
+</body>
+
+</html>

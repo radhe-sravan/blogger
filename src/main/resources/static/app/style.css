@@ -1,0 +1,345 @@
+/** login.html **/
+#loginForm {
+	margin-top: 10%;
+	border: 1px solid #97a7a7;
+}
+
+.profile-img {
+	width: 96px;
+	height: 96px;
+	margin: 20px auto 10px;
+	display: block;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+#username {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#password {
+	margin-bottom: 30px;
+}
+
+#username, #password {
+	width: 100%;
+	padding: 10px;
+	font-size: 17px;
+}
+
+#signIn {
+	font-size: 17px;
+	margin-bottom: 30px;
+	padding: 10px;
+}
+
+.message p {
+	font-size: 16px;
+	margin-bottom: 30px;
+}
+
+#errorMsg p {
+	color: #ff0000;
+}
+
+#logoutMsg p {
+	color: #006400;
+}
+
+/** End of login.html **/
+#header {
+	background-color: #f6f6f6;
+	border-radius: 0;
+	border-bottom: 1px solid #b2b2b2;
+	padding-top: 5px;
+	padding-bottom: 40px;
+}
+
+.navbar-brand h1 {
+	font-family: 'Lora', serif;
+	color: #000000;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px #222;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: .75;
+	display: inline-block;
+}
+
+
+#back {
+	font-size: 17px;
+	font-weight: normal;
+	color: #000000;
+	float: right;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 5px;
+}
+
+#back:hover {
+	color: #ffa500;
+}
+
+.navbar-brand a:hover, .navbar-brand a:focus {
+	text-decoration: none;
+}
+
+.navbar-brand p {
+	color: #000;
+	font-size: 1.5em;
+	margin-top: 15px;
+	font-family: 'Niconne', cursive;
+	vertical-align: middle;
+}
+
+#navbarLinks {
+	margin-top: 15px;
+}
+
+#navbarLinks li {
+	color: #000000;
+	font-size: 18px;
+	text-align: center;
+	margin-right: 20px;
+}
+
+#navbarLinks #bigBack {
+	font-size: 18px;
+}
+
+#bigBack:hover {
+	cursor: pointer;
+	color: #ee7600;
+}
+
+#logout {
+	display: inline;
+	font-weight: bold;
+	color: #323299;
+	padding-top: 0;
+	text-decoration: none;
+}
+
+#logout:hover {
+	color: #fc9462;
+}
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+	border: 1px solid #000000;
+}
+
+.navbar-header button.navbar-toggle {
+	clear: both;
+	margin-top: -30px;
+}
+
+.post {
+	border-bottom: 1px solid #d3d3d3;
+}
+
+.postDate {
+	margin-top: 10px;
+	font-size: 17px;
+}
+
+.postTitle a {
+	color: #323299;
+	font-size: 19px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.postTitle a:hover {
+	color: #ffa500;
+}
+
+.postContent {
+	overflow: hidden;
+	position: relative;
+	line-height: 1.2em;
+	max-height: 6em;
+	text-align: justify !important;
+	padding-right: 40px;
+	font-size: 19px;
+}
+
+.postContent:before {
+	content: '...';
+	position: absolute;
+	right: 20px;
+	bottom: 0;
+}
+
+.postContent:after {
+	content: '';
+	position: absolute;
+	right: 20px;
+	width: 1em;
+	height: 1em;
+	background: white;
+}
+
+#postTitle {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#postContent {
+	font-size: 19px;
+	text-align: justify;
+}
+
+#comments {
+	font-size: 18px;
+	font-weight: bold;
+	padding-top: 5px;
+}
+
+.likeLinks a span{
+	display: inline-block;
+	font-size: 19px;
+}
+
+.user {
+	margin-top: 5px;
+	font-size: 18px;
+	font-weight: bold;
+	display: inline;
+}
+
+.commentDate {
+	margin-left: 5px;
+	font-size: 16px;
+	color: #888;
+	display: inline;
+}
+
+.deleteComment {
+	margin-left: 15px;
+}
+
+.comment {
+	font-size: 18px;
+	text-align: justify;
+}
+
+#comment{
+	font-size: 17px;
+	white-space: pre-wrap;
+}
+
+#commentLabel{
+	font-size: 18px;
+	margin-top: 10px;
+}
+
+#commentError{
+	font-size: 17px;
+	margin-left: 20px;
+	color: #ff0000;
+	display:none;
+}
+
+#submitComment{
+	margin-top: 10px;
+	margin-bottom: 20px;
+	font-size: 17px;
+}
+
+/** Device Specific Settings **/
+
+/********** Large devices only **********/
+@media ( min-width : 1200px) {
+}
+
+/********** Medium devices only **********/
+@media ( min-width : 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media ( min-width : 768px) and (max-width: 991px) {
+}
+
+/********** Extra small devices only **********/
+@media ( max-width : 767px) {
+	#loginForm {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+	.navbar-brand {
+		padding-top: 10px;
+		margin-bottom: 10px;
+		height: 60px;
+	}
+	.navbar-brand p {
+		font-size: 1.3em;
+		margin-top: 12px;
+	}
+	#header {
+		padding-bottom: 0;
+	}
+	#collapsableNavbar {
+		background-color: #f6f6f6;
+	}
+	#navbarLinks li {
+		font-size: 17px;
+		margin-top: 0;
+		margin-bottom: 10px;
+		font-weight: normal;
+	}
+	#navbarLinks li a {
+		margin-bottom: 0;
+	}
+	#posts {
+		border-right: 0;
+	}
+	.postDate {
+		font-size: 15px;
+	}
+	.postTitle {
+		font-size: 17px;
+		font-weight: bold;
+	}
+	.postContent {
+		font-size: 17px;
+		line-height: 1.2em;
+		max-height: 6em;
+	}
+	#postTitle {
+		font-size: 20px;
+	}
+	#postContent {
+		font-size: 17px;
+	}
+	#comments {
+		font-size: 17px;
+	}
+	.user {
+		font-size: 17px;
+	}
+	.commentDate {
+		font-size: 15px;
+	}
+	.comment {
+		font-size: 17px;
+	}
+}
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media ( max-width : 479px) {
+	.navbar-brand h1 {
+		padding-top: 5px;
+		font-size: 1.3em;
+	}
+	.col-xxs-12 {
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+		width: 100%;
+	}
+}

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${post.title} + ' | Technocrat'">Technocrat</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../static/app/style.css"
+	th:href="@{/app/style.css}" />
+<script type="text/javascript" src="../static/jquery.min.js"
+	th:src="@{/jquery.min.js}"></script>
+<script type="text/javascript" src="../static/angular.min.js"
+	th:src="@{/angular.min.js}"></script>
+<script type="text/javascript" src="../static/bootstrap.min.js"
+	th:src="@{/bootstrap.min.js}"></script>
+<script type="text/javascript" src="../static/app/script.js"
+	th:src="@{/app/script.js}"></script>
+<link href="https://fonts.googleapis.com/css?family=Niconne"
+	rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Droid+Serif:700"
+	rel="stylesheet" />
+
+<script type="text/javascript">
+         history.pushState(null, document.title, location.href);
+         window.addEventListener('popstate', function (event)
+         {
+           history.pushState(null, document.title, location.href);
+         });
+      </script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+	<header>
+		<nav id="header" class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<div class="navbar-brand">
+						<h1>Technocrat</h1>
+						<a id="back" class="visible-xs" href="/"> <span
+							class="pull-left glyphicon glyphicon-chevron-left"></span>Back
+						</a>
+						<p>for the technical geeks out there</p>
+					</div>
+					<button id="navbarToggle" type="button"
+						class="navbar-toggle collapsed" data-toggle="collapse"
+						data-target="#collapsableNavbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
+				<div id="collapsableNavbar" class="collapse navbar-collapse">
+					<ul id="navbarLinks" class="nav navbar-nav navbar-right">
+						<li id="bigBack" onclick="location.href='/';" class="hidden-xs"
+							href="/"><span
+							class="pull-left glyphicon glyphicon-chevron-left"></span>Back</li>
+						<li id="user" th:text="'Signed in as ' + ${username}">Signed
+							in as anonymous</li>
+						<li><a id="logout" th:href="@{/logout}">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div id="content" class="container">
+		<div class="row">
+			<div class="col-lg-12 col-xs-12">
+				<p id="postTitle" th:text="${post.title}">Title</p>
+				<p id="postContent" th:text="${{{post.content}}}">Content</p>
+				<script type="text/javascript" th:inline="javascript">
+            /*<![CDATA[*/
+            var comments = [[${comments}]];
+            var hasAdminRole = [[${hasAdminRole}]];
+            if(comments.length  > 0){
+            	if(comments.length == 1){
+            	document.write('<p id="comments">1 comment : </p>');
+            	}
+            	else{
+            		document.write('<p id="comments">' +comments.length + ' comments : ');
+            	}
+            }
+            else{
+            	document.write('<p id="comments"> No comments so far </p>');
+            }
+            for (i = 0; i < comments.length; i++) {
+            	if(hasAdminRole === true){
+             	   document.write('<p class = "user">' + comments[i].user + '</p><span class="commentDate">'+ comments[i].commentDate +'<input class="deleteComment btn btn-danger hidden-xs" type="submit" value="Delete" /> </span>');
+               }
+            	else{
+            		document.write('<p class = "user">' + comments[i].user + '</p><span class="commentDate">'+ comments[i].commentDate + '</span>');
+            	}
+                   document.write('<p class = "comment">' + comments[i].comment + '</p>');    
+            }
+              /*]]>*/
+         </script>
+				<div>
+					<form class="hidden-xs" ng-submit="submit()" ng-controller="myCtrl">
+						<label id="commentLabel" for="comment">Add a comment</label> <label
+							id="commentError">{{errorText}}</label>
+						<textarea id="comment" class="form-control" rows="4" cols="50"
+							ng-model="text" name="text" autofocus="autofocus" wrap="hard"></textarea>
+						<input id="submitComment" class="btn btn-primary" type="submit"
+							value="Publish Comment" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" th:inline="javascript">
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+	var comments = [[${comments}]];
+	var post = [[${post}]];
+	var username = [[${username}]];
+    $scope.postId = post.id;
+    $scope.errorText = '';
+    $scope.submit = function() {
+      if ($scope.text) {
+    	  var parameter = JSON.stringify({postId:$scope.postId, user:username, comment:$scope.text});
+    	    $http.post("/blogger/1.0/comments", parameter).
+    	    success(function(data, status, headers, config) {
+    	    	$scope.errorText = '';
+    	        $scope.text = '';
+    	        location.reload();
+    	      }).
+    	      error(function(data, status, headers, config) {
+    	      });
+      }
+      else{
+    	  $scope.errorText = 'Comment cannot be empty';
+    	  document.getElementById('commentError').style.display = 'inline';
+      }
+    };
+});
+</script>
+</body>
+</html>

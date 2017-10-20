@@ -1,0 +1,6 @@
+{
+  "name": "Blogger",
+  "description": "A simple blog like application",
+  "image": "heroku/java",
+  "addons": [ "heroku-postgresql" ]
+}
