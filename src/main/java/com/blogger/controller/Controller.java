@@ -72,6 +72,11 @@ public class Controller {
   public List<Comment> getAllCommentsForPost(@RequestParam("id") String id) {
     return commentRepository.findByPostIdOrderByCommentDateDesc(id);
   }
+  
+  @DeleteMapping("/comments/{id}")
+  public void deleteComment(@PathVariable String id) {
+    commentRepository.delete(id);
+  }
 
   @RequestMapping(value = "/logout", method = RequestMethod.POST)
   public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
