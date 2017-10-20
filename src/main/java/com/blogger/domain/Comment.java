@@ -47,7 +47,7 @@ public class Comment implements Serializable {
     return postId;
   }
 
-  public String getUser() {
+  public String getCommentAsUser() {
     return commentAsUser;
   }
 

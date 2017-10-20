@@ -84,10 +84,10 @@
             }
             for (i = 0; i < comments.length; i++) {
             	if(hasAdminRole === true){
-             	   document.write('<p class = "user">' + comments[i].user + '</p><span class="commentDate">'+ comments[i].commentDate +'<input class="deleteComment btn btn-danger hidden-xs" type="submit" value="Delete" /> </span>');
+             	   document.write('<p class = "user">' + comments[i].commentAsUser + '</p><span class="commentDate">'+ comments[i].commentDate +'<input class="deleteComment btn btn-danger hidden-xs" type="submit" value="Delete" /> </span>');
                }
             	else{
-            		document.write('<p class = "user">' + comments[i].user + '</p><span class="commentDate">'+ comments[i].commentDate + '</span>');
+            		document.write('<p class = "user">' + comments[i].commentAsUser + '</p><span class="commentDate">'+ comments[i].commentDate + '</span>');
             	}
                    document.write('<p class = "comment">' + comments[i].comment + '</p>');    
             }
@@ -118,7 +118,7 @@ app.controller('myCtrl', function($scope, $http) {
     $scope.errorText = '';
     $scope.submit = function() {
       if ($scope.text) {
-    	  var parameter = JSON.stringify({postId:$scope.postId, user:username, comment:$scope.text});
+    	  var parameter = JSON.stringify({postId:$scope.postId, commentAsUser:username, comment:$scope.text});
     	    $http.post("/blogger/1.0/comments", parameter).
     	    success(function(data, status, headers, config) {
     	    	$scope.errorText = '';
