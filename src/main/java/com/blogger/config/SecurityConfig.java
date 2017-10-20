@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired
   public void configureUsers(AuthenticationManagerBuilder builder) throws Exception {
-    builder.inMemoryAuthentication().withUser("sravan").password("12345").roles("USER", "ADMIN")
+    builder.inMemoryAuthentication().withUser("admin").password("admin").roles("USER", "ADMIN")
         .and().withUser("user").password("password").roles("USER");
   }
 
