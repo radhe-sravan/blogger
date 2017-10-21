@@ -2,7 +2,6 @@ server:
     port: 8081
 ---
 spring:
-  profiles: production
   datasource:
    url: ${JDBC_DATABASE_URL}
    username: ${JDBC_DATABASE_USERNAME}
