@@ -1,9 +1,22 @@
-spring:
-  datasource:
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
 server:
     port: 8081
-
-    
+---
+spring:
+  profiles: production
+  datasource:
+   url: ${JDBC_DATABASE_URL}
+   username: ${JDBC_DATABASE_USERNAME}
+   password: ${JDBC_DATABASE_PASSWORD}
+---
+spring:
+  profiles: development
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://bloggerDB:5432/postgres
+    username: postgres
+    driverClassName: org.postgresql.Driver  

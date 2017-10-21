@@ -1,0 +1,6 @@
+FROM java:8
+EXPOSE 8081
+ENV APP_NAME "blogger"
+ENV JAVA_OPTS ""
+COPY ${APP_NAME}.jar ${APP_NAME}.jar
+CMD java ${JAVA_OPTS} -jar ${APP_NAME}.jar
