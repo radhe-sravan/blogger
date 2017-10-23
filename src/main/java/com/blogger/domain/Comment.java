@@ -29,7 +29,7 @@ public class Comment implements Serializable {
   @CreatedDate
   private Date commentDate;
 
-  public Comment() {
+  protected Comment() {
 
   }
 

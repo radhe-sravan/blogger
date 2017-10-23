@@ -28,7 +28,7 @@ public class BlogPost implements Serializable {
   @CreatedDate
   private Date createdDate;
 
-  public BlogPost() {
+  protected BlogPost() {
 
   }
 
