@@ -56,4 +56,8 @@ public class BlogUser implements Serializable {
     return enabled;
   }
 
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
 }

@@ -6,10 +6,12 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,8 +39,11 @@ public class Controller {
   private CommentRepository commentRepository;
   private BlogUserRepository userRepository;
 
-  public Controller(BlogPostRepository blogPostRepository, CommentRepository commentRepository, BlogUserRepository userRepository)
-      throws UnknownHostException {
+  @Autowired
+  private PasswordEncoder passwordEncoder;
+
+  public Controller(BlogPostRepository blogPostRepository, CommentRepository commentRepository,
+      BlogUserRepository userRepository) throws UnknownHostException {
     this.blogPostRepository = blogPostRepository;
     this.commentRepository = commentRepository;
     this.userRepository = userRepository;
@@ -82,9 +87,10 @@ public class Controller {
     commentRepository.delete(id);
     return new ResponseEntity<>(null, HttpStatus.OK);
   }
-  
+
   @PostMapping("/users")
   public ResponseEntity<BlogUser> addNewUser(@RequestBody BlogUser user) {
+    user.setPassword(passwordEncoder.encode(user.getPassword()));
     userRepository.save(user);
     return new ResponseEntity<>(user, HttpStatus.OK);
   }
@@ -93,9 +99,9 @@ public class Controller {
   public List<BlogUser> getAllUsers() {
     return userRepository.findAll();
   }
-  
+
   @DeleteMapping("/users/{id}")
-  public  ResponseEntity<String> deleteUser(@PathVariable String id) {
+  public ResponseEntity<String> deleteUser(@PathVariable String id) {
     userRepository.delete(id);
     return new ResponseEntity<>(null, HttpStatus.OK);
   }
