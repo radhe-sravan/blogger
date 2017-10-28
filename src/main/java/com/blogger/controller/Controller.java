@@ -23,8 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.blogger.domain.BlogPost;
+import com.blogger.domain.BlogUser;
 import com.blogger.domain.Comment;
 import com.blogger.repository.BlogPostRepository;
+import com.blogger.repository.BlogUserRepository;
 import com.blogger.repository.CommentRepository;
 
 @RestController
@@ -33,11 +35,13 @@ public class Controller {
 
   private BlogPostRepository blogPostRepository;
   private CommentRepository commentRepository;
+  private BlogUserRepository userRepository;
 
-  public Controller(BlogPostRepository blogPostRepository, CommentRepository commentRepository)
+  public Controller(BlogPostRepository blogPostRepository, CommentRepository commentRepository, BlogUserRepository userRepository)
       throws UnknownHostException {
     this.blogPostRepository = blogPostRepository;
     this.commentRepository = commentRepository;
+    this.userRepository = userRepository;
   }
 
   @PostMapping("/posts")
@@ -76,6 +80,23 @@ public class Controller {
   @DeleteMapping("/comments/{id}")
   public ResponseEntity<String> deleteComment(@PathVariable String id) {
     commentRepository.delete(id);
+    return new ResponseEntity<>(null, HttpStatus.OK);
+  }
+  
+  @PostMapping("/users")
+  public ResponseEntity<BlogUser> addNewUser(@RequestBody BlogUser user) {
+    userRepository.save(user);
+    return new ResponseEntity<>(user, HttpStatus.OK);
+  }
+
+  @GetMapping("/users")
+  public List<BlogUser> getAllUsers() {
+    return userRepository.findAll();
+  }
+  
+  @DeleteMapping("/users/{id}")
+  public  ResponseEntity<String> deleteUser(@PathVariable String id) {
+    userRepository.delete(id);
     return new ResponseEntity<>(null, HttpStatus.OK);
   }
 
