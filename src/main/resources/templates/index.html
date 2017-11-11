@@ -13,6 +13,8 @@
 	th:src="@{/jquery.min.js}"></script>
 <script type="text/javascript" src="../static/angular.min.js"
 	th:src="@{/angular.min.js}"></script>
+<script type="text/javascript" src="../static/angular-sanitize.min.js"
+	th:src="@{/angular-sanitize.min.js}"></script>
 <script type="text/javascript" src="../static/bootstrap.min.js"
 	th:src="@{/bootstrap.min.js}"></script>
 <script type="text/javascript" src="../static/app/app.module.js"
@@ -68,7 +70,7 @@
 					<p class="postTitle">
 						<a id="{{post.id}}" href="" ng-click="ic.goToPost(post.id)">{{post.title}}</a>
 					</p>
-					<p class="postContent">{{post.content}}</p>
+					<p class="postContent" ng-bind-html="post.content"></p>
 				</div>
 			</div>
 			<div class="search col-lg-2"></div>
