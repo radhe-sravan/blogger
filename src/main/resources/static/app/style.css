@@ -242,6 +242,7 @@
 	margin-left: 20px;
 	color: #ff0000;
 	display:none;
+	font-weight: normal;
 }
 
 #submitComment{
@@ -310,22 +311,22 @@
 		max-height: 6em;
 	}
 	#postTitle {
-		font-size: 20px;
+		font-size: 19px;
 	}
 	#postContent {
-		font-size: 17px;
+		font-size: 16px;
 	}
 	#comments {
-		font-size: 17px;
+		font-size: 16px;
 	}
 	.user {
-		font-size: 17px;
+		font-size: 16px;
 	}
 	.commentDate {
 		font-size: 15px;
 	}
 	.comment {
-		font-size: 17px;
+		font-size: 16px;
 	}
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
