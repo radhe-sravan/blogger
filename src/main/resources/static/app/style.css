@@ -148,7 +148,7 @@
 
 .postTitle a {
 	color: #323299;
-	font-size: 19px;
+	font-size: 18px;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -160,18 +160,19 @@
 .postContent {
 	overflow: hidden;
 	position: relative;
-	line-height: 1.2em;
+	line-height: 1.25em;
 	max-height: 6em;
 	text-align: justify !important;
-	padding-right: 40px;
-	font-size: 19px;
+	font-size: 18px;
+	padding-right: 43px;
 }
 
 .postContent:before {
-	content: '...';
+	content: '.....';
 	position: absolute;
 	right: 20px;
 	bottom: 0;
+	margin-bottom: -2px;
 }
 
 .postContent:after {
@@ -184,12 +185,12 @@
 }
 
 #postTitle {
-	font-size: 22px;
+	font-size: 21px;
 	font-weight: bold;
 }
 
 #postContent {
-	font-size: 19px;
+	font-size: 18px;
 	text-align: justify;
 }
 
@@ -220,6 +221,7 @@
 
 .deleteComment {
 	margin-left: 15px;
+	margin-bottom: 10px;
 }
 
 .comment {
@@ -234,7 +236,7 @@
 
 #commentLabel{
 	font-size: 18px;
-	margin-top: 10px;
+	margin-top: 5px;
 }
 
 #commentError{
@@ -304,12 +306,16 @@
 	.postTitle {
 		font-size: 17px;
 		font-weight: bold;
+		padding-right: 43px;
 	}
 	.postContent {
 		font-size: 17px;
 		line-height: 1.2em;
 		max-height: 6em;
 	}
+	.postContent:before {
+    	margin-bottom: 2px;
+    }
 	#postTitle {
 		font-size: 19px;
 	}

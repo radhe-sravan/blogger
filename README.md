@@ -45,9 +45,3 @@ The -d option is to run the command as a daemon process. This command pulls in t
 `docker-compose logs`
 
 Once the application has been started it can be accessed at http://localhost:8081 which should redirect to the login page of the application.
-
-
-
-
-
-
