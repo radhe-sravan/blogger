@@ -84,7 +84,7 @@
             }
             for (i = 0; i < comments.length; i++) {
             	if(hasAdminRole === true){
-             	   document.write('<div class = "user">' + comments[i].commentAsUser + '</div><span class="commentDate">'+ comments[i].commentDate +'<input id =  "' + comments[i].id + '" onClick="deleteComment(\'' +comments[i].id +'\')" class="deleteComment btn btn-danger hidden-xs" type="submit" value="Delete" /> </span>');
+             	   document.write('<div class = "user">' + comments[i].commentAsUser + '</div><span class="commentDate">'+ comments[i].commentDate +'<b> <span id =  "' + comments[i].id + '" onClick="deleteComment(\'' +comments[i].id +'\')" class="deleteComment glyphicon glyphicon-trash hidden-xs" style="cursor: pointer;" type="submit" value="Delete"> </b> </span></span>');
                }
             	else{
             		document.write('<div class = "user">' + comments[i].commentAsUser + '</div><span class="commentDate">'+ comments[i].commentDate + '</span>');
@@ -131,6 +131,7 @@ app.controller('myCtrl', function($scope, $http) {
       else{
     	  $scope.errorText = 'Comment cannot be empty';
     	  document.getElementById('commentError').style.display = 'inline';
+    	  document.getElementById('comment').style.border='1px solid #f00';
       }
     };
 });

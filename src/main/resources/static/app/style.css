@@ -207,9 +207,8 @@
 }
 
 #comments {
-	font-size: 18px;
+	font-size: 17px;
 	font-weight: bold;
-	padding-top: 5px;
 }
 
 .likeLinks a span{
@@ -247,7 +246,7 @@
 }
 
 #commentLabel{
-	font-size: 18px;
+	font-size: 17px;
 	margin-top: 5px;
 }
 
