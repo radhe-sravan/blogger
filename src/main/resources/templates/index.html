@@ -56,6 +56,14 @@
 					<ul id="navbarLinks" class="nav navbar-nav navbar-right">
 						<li id="user" th:text="'Signed in as ' + ${username}">Signed
 							in as anonymous</li>
+						<script type="text/javascript" th:inline="javascript">
+							/*<![CDATA[*/
+							var hasAdminRole = [[${hasAdminRole}]];
+							if(hasAdminRole === true){
+             	   				document.write('<li><a id="addPost"> Add Post</a></li>');
+               				}
+               				 /*]]>*/
+						</script>
 						<li><a id="logout" th:href="@{/logout}">Logout</a></li>
 					</ul>
 				</div>

@@ -116,6 +116,18 @@
 	color: #ee7600;
 }
 
+#addPost {
+	display: inline;
+	font-weight: bold;
+	color: #323299;
+	padding-top: 0;
+	text-decoration: none;
+}
+
+#addPost:hover {
+	color: #fc9462;
+}
+
 #logout {
 	display: inline;
 	font-weight: bold;

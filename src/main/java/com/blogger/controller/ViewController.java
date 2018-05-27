@@ -37,6 +37,9 @@ public class ViewController {
   public String index(@AuthenticationPrincipal UserDetails userDetails, Model model) {
     username = userDetails.getUsername();
     model.addAttribute("username", username);
+    if (hasRole("ROLE_ADMIN")) {
+      model.addAttribute("hasAdminRole", true);
+    }
     return "index";
   }
 
