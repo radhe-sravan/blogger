@@ -172,11 +172,11 @@
 .postContent {
 	overflow: hidden;
 	position: relative;
-	line-height: 1.25em;
+	line-height: 1.5em;
 	max-height: 6em;
 	text-align: justify !important;
 	font-size: 18px;
-	padding-right: 43px;
+	padding-right: 45px;
 }
 
 .postContent:before {
@@ -184,7 +184,7 @@
 	position: absolute;
 	right: 20px;
 	bottom: 0;
-	margin-bottom: -2px;
+	margin-bottom: 1px;
 }
 
 .postContent:after {
@@ -199,6 +199,7 @@
 #postTitle {
 	font-size: 21px;
 	font-weight: bold;
+	color: #f00;
 }
 
 #postContent {
@@ -317,7 +318,7 @@
 	.postTitle {
 		font-size: 17px;
 		font-weight: bold;
-		padding-right: 43px;
+		padding-right: 40px;
 	}
 	.postContent {
 		font-size: 17px;
